@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>[Author Name] — Regency Romance</title>
+  <meta name="description" content="Author of Jane Austen-inspired Regency romances. Elegant, candlelit tales of love, wits, and music." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream: #F6EFE7;
+      --ivory: #FBF7F3;
+      --gold: #C89A3A;
+      --gold-dark: #8E6B2A;
+      --velvet: #2B1E2B; /* deep plum/velvet */
+      --char: #2A2726;
+      --muted: #7F746F;
+      --spacing: 1.1rem;
+      --hero-img: linear-gradient(120deg, rgba(43,30,43,0.6), rgba(200,154,58,0.08));
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Lora", serif;
+      background: linear-gradient(180deg, var(--ivory), var(--cream));
+      color:var(--char);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.55;
+    }
+
+    a{color:var(--gold-dark); text-decoration:none}
+    a:hover{ text-decoration:underline }
+
+    header{
+      background: var(--hero-img);
+      background-blend-mode: overlay;
+      background-size:cover;
+      background-position:center;
+      padding: clamp(2rem, 6vw, 5rem) 1.25rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    .sig{
+      font-family:"Playfair Display", serif;
+      font-size:1.25rem;
+      letter-spacing: .02em;
+      color:var(--velvet);
+    }
+    .tag{
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+    .cta{
+      background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+      color: white;
+      padding:.45rem .9rem;
+      border-radius:8px;
+      font-weight:600;
+      box-shadow: 0 6px 18px rgba(140,100,40,0.15);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1.5rem;
+      align-items:center;
+      color:var(--ivory);
+    }
+
+    .hero-card{
+      background: rgba(255,255,255,0.03);
+      padding: clamp(1.25rem,3vw,2rem);
+      border-radius:14px;
+      max-width:760px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    h1{
+      margin:.1rem 0 .5rem 0;
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(1.75rem, 4.5vw, 3rem);
+      color:var(--ivory);
+      text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    }
+    p.lead{
+      margin:0;
+      color: rgba(251,247,243,0.9);
+      font-size:1.05rem;
+    }
+
+    /* Main */
+    main{padding: clamp(1.5rem, 4vw, 3rem) 1.25rem 3rem;}
+    section{
+      margin: 2rem 0;
+      background:transparent;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+      gap:1.5rem;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+      border-radius:12px;
+      padding:1.25rem;
+      box-shadow: 0 6px 18px rgba(33,25,25,0.04);
+      border: 1px solid rgba(40,30,30,0.03);
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      margin:0 0 .5rem 0;
+      color:var(--velvet);
+    }
+    .muted{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .book{
+      display:flex;
+      gap:1rem;
+      align-items:flex-start;
+    }
+    .book .cover{
+      width:92px;
+      height:132px;
+      border-radius:6px;
+      background:linear-gradient(180deg, #f5efe6, #e9dcca);
+      box-shadow: inset 0 -6px 16px rgba(0,0,0,0.06);
+      flex:0 0 92px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:"Playfair Display", serif;
+      color:var(--gold-dark);
+      font-weight:700;
+      letter-spacing:.03em;
+    }
+    .book .meta{flex:1}
+    .book .meta p{margin:.15rem 0}
+
+    /* Newsletter */
+    .newsletter{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      margin-top:.5rem;
+      flex-wrap:wrap;
+    }
+    input[type="email"]{
+      padding:.6rem .8rem;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.06);
+      min-width:220px;
+      font-size:1rem;
+    }
+    button[type="submit"]{
+      padding:.6rem .9rem;
+      border-radius:8px;
+      border: none;
+      font-weight:600;
+      background: var(--velvet);
+      color:var(--ivory);
+      cursor:pointer;
+    }
+
+    footer{
+      padding:1.5rem 1.25rem;
+      border-top:1px solid rgba(0,0,0,0.04);
+      text-align:center;
+      font-size:.95rem;
+      color:var(--muted);
+    }
+
+    /* Small screens */
+    @media (max-width:800px){
+      .grid-2{grid-template-columns:1fr}
+      header{padding:clamp(1.25rem,6vw,3rem) 1rem}
+      nav ul{display:none}
+    }
+
+    /* decorative lace flourish (subtle) */
+    .lace {
+      position:relative;
+      height:38px;
+      margin-top: .8rem;
+      opacity:.6;
+      background-image:
+        radial-gradient(circle at 10% 40%, rgba(255,255,255,0.06) 0 8px, transparent 9px),
+        radial-gradient(circle at 30% 60%, rgba(255,255,255,0.04) 0 6px, transparent 7px);
+      border-radius:8px;
+      pointer-events:none;
+    }
+
+    /* simple fade-in */
+    .reveal { opacity:0; transform: translateY(6px); transition: all 540ms cubic-bezier(.2,.9,.2,1) }
+    .reveal.show { opacity:1; transform:none }
+  </style>
+</head>
+<body>
+  <header aria-label="Hero section" style="background-image: var(--hero-img);">
+    <div class="container">
+      <div class="nav" role="navigation" aria-label="Main">
+        <div class="brand" aria-hidden="false">
+          <div class="sig">[Author Name]</div>
+          <div class="tag">Regency Romance • Jane Austen inspired</div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a class="cta" href="#newsletter">Join</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-card reveal" id="heroCard" role="region" aria-labelledby="heroTitle">
+          <h1 id="heroTitle">Candlelit letters, moonlit dances, and hearts with something to prove.</h1>
+          <p class="lead">I write Jane Austen–inspired Regency romances — linen-bound sentiment, dry wit, and music in the parlor. New books, readings, and occasional essays on music & manners.</p>
+
+          <div class="lace" aria-hidden="true"></div>
+
+          <p style="margin-top:1rem; color:var(--ivory); font-size:.98rem">Latest release: <strong style="color:var(--gold);">A Season for Sonnets</strong> — now available.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="books" aria-labelledby="booksTitle">
+      <h2 id="booksTitle">Books</h2>
+      <p class="muted">A selection — each finished with gilt-edged charm.</p>
+
+      <div class="grid-2" style="margin-top:1rem;">
+        <article class="card reveal">
+          <div class="book">
+            <div class="cover">AS</div>
+            <div class="meta">
+              <h3 style="font-family:Playfair Display, serif; margin:.1rem 0 .25rem 0;">A Season for Sonnets</h3>
+              <p class="muted">A novel of music, mistaken letters, and the stubborn Mr. Harcourt.</p>
+              <p style="margin-top:.6rem"><a href="#" aria-label="Buy A Season for Sonnets">Buy / Read excerpt →</a></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="book">
+            <div class="cover">MS</div>
+            <div class="meta">
+              <h3 style="font-family:Playfair Display, serif; margin:.1rem 0 .25rem 0;">Moonlight Salon</h3>
+              <p class="muted">A salon in Bath, a violin, and two hearts learning to listen.</p>
+              <p style="margin-top:.6rem"><a href="#" aria-label="Buy Moonlight Salon">Buy / Read excerpt →</a></p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">About</h2>
+      <div class="card reveal" style="margin-top:1rem;">
+        <p>I write stories that smell faintly of beeswax candles and library leather — novels for readers who like their romance with a side of wit, music, and drawing-room repartee. Influences: Austen, Mozart’s gentle storms, and late-night candlelight reading.</p>
+        <p style="margin-top:.6rem" class="muted">Events, readings, and appearances: <strong>subscribe</strong> for notices.</p>
+      </div>
+    </section>
+
+    <section id="newsletter" aria-labelledby="newsletterTitle">
+      <h2 id="newsletterTitle">Newsletter</h2>
+      <p class="muted">Short letters — readings, new release dates, and a few excerpts. No spam; occasional sonnets.</p>
+
+      <form class="card reveal" style="margin-top:1rem;" action="https://formspree.io/f/your-id" method="POST" id="newsletterForm">
+        <label for="email" style="display:block; font-weight:600; margin-bottom:.35rem; color:var(--velvet)">Enter your email</label>
+        <div class="newsletter">
+          <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
+          <button type="submit">Join the Parlor</button>
+        </div>
+        <p class="muted" style="margin-top:.6rem">Or email me at <a href="mailto:author@example.com">author@example.com</a>.</p>
+      </form>
+    </section>
+
+    <section id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact</h2>
+      <div class="card reveal" style="margin-top:1rem;">
+        <p class="muted">For events, rights inquiries, or a polite chat about Mozart — use the form above or email directly.</p>
+        <p style="margin-top: .8rem"><strong>Social</strong>: <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="X / Twitter">X</a> · <a href="#" aria-label="Bookshop link">Bookshop</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> [Author Name]. All rights reserved. Designed with lace, gold, and quiet music.</p>
+    </div>
+  </footer>
+
+  <script>
+    // small progressive enhancement: show reveals, set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function revealNow(){
+      document.querySelectorAll('.reveal').forEach((el, i) => {
+        setTimeout(()=> el.classList.add('show'), 90 * (i+1));
+      });
+    }
+    document.addEventListener('DOMContentLoaded', revealNow);
+
+    // Optional: intercept Formspree to show a nicer message client-side
+    const form = document.getElementById('newsletterForm');
+    form.addEventListener('submit', async (e) => {
+      // if you want to handle client-side and still submit, comment this out.
+      // We'll allow natural submission to the form endpoint for simplicity.
+    });
+  </script>
+</body>
+</html>
